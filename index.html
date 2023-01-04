@@ -77,15 +77,16 @@
                 return "Invalid!"
             }
 
+            //console.log(playRound("Rock","paper") == "Victory")
             function game()
             {
+                playerScore=0
+                computerScore=0
                 for (let i=0; i<5; i++)
                 {
-                    playerScore=0
-                    computerScore=0
                     playerSelection = prompt("Choose your move: Rock, Paper, or Scissors.")
                     computerSelection = getComputerChoice()
-                    let result = playRound(computerSelection, playerSelection);
+                    let result = playRound(computerSelection, playerSelection)
                     if (result == "Victory")
                     {
                         console.log("You win! "+ playerSelection + " beats "+ computerSelection+".")
@@ -103,7 +104,22 @@
                         console.log("Tie! "+ playerSelection + " and "+ computerSelection + " are matched.")
                     }
                 }
+
+                if (playerScore>computerScore)
+                {
+                    console.log("Final result: You win!!")
+                }
+                else if (playerScore<computerScore)
+                {
+                    console.log("Final result: You lose :(")
+                }
+                else 
+                {
+                    console.log("Final result: Tie!")
+                }
             }
+
+            console.log(game())
             
         </script>
         
